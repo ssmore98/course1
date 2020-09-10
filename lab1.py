@@ -25,3 +25,15 @@ df.dropna(subset=["price"], axis=0)
 # save the data set
 df.to_csv("automobile.csv", index=False)
 
+# show column types
+print(df.dtypes)
+
+# show statistics
+print(df.describe())
+
+# describe all the columns in "df" 
+print(df.describe(include = "all"))
+
+print(df[['price', 'compression-ratio']].describe(include="all"))
+
+print(df.info)
