@@ -108,4 +108,31 @@ matplotlib.pyplot.bar(group_names, df["horsepower-binned"].value_counts())
 matplotlib.pyplot.xlabel("horsepower")
 matplotlib.pyplot.ylabel("count")
 matplotlib.pyplot.title("horsepower bins")
-matplotlib.pyplot.show()
+# matplotlib.pyplot.show()
+
+# draw historgram of attribute "horsepower" with bins = 3
+matplotlib.pyplot.hist(df["horsepower"], bins = 3)
+
+# set x/y labels and plot title
+matplotlib.pyplot.xlabel("horsepower")
+matplotlib.pyplot.ylabel("count")
+matplotlib.pyplot.title("horsepower bins")
+# matplotlib.pyplot.show()
+
+# list columns
+print(df.columns)
+dummy_variable_1 = pandas.get_dummies(df["fuel-type"])
+print(dummy_variable_1.head())
+# merge data frame "df" and "dummy_variable_1" 
+df = pandas.concat([df, dummy_variable_1], axis=1)
+
+# drop original column "fuel-type" from "df"
+df.drop("fuel-type", axis = 1, inplace=True)
+print(df.head())
+
+dummy_variable_2 = pandas.get_dummies(df["aspiration"])
+dummy_variable_2.head()
+print(dummy_variable_2.head())
+df = pandas.concat([df, dummy_variable_2], axis=1)
+df.drop("aspiration", axis = 1, inplace=True)
+print(df.head())
