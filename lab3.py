@@ -1,5 +1,5 @@
-import pandas as pd
-import numpy as np
+import pandas
+import numpy
 
 # load the data
 path = "automobile.csv"
