@@ -166,4 +166,23 @@ ax.set_yticklabels(col_labels, minor=False)
 matplotlib.pyplot.xticks(rotation=90)
 
 fig.colorbar(im)
-matplotlib.pyplot.show()
+# matplotlib.pyplot.show()
+
+# Correlation and causation
+print(df.corr())
+from scipy import stats
+pearson_coef, p_value = stats.pearsonr(df['wheel-base'], df['price'])
+print("[wheel-base, price] The Pearson Correlation Coefficient is", pearson_coef, " with a P-value of P =", p_value)
+pearson_coef, p_value = stats.pearsonr(df['horsepower'], df['price'])
+print("[horsepower, price] The Pearson Correlation Coefficient is", pearson_coef, " with a P-value of P =", p_value)
+pearson_coef, p_value = stats.pearsonr(df['length'], df['price'])
+print("[length, price] The Pearson Correlation Coefficient is", pearson_coef, " with a P-value of P =", p_value)
+pearson_coef, p_value = stats.pearsonr(df['width'], df['price'])
+print("[width, price] The Pearson Correlation Coefficient is", pearson_coef, " with a P-value of P =", p_value)
+pearson_coef, p_value = stats.pearsonr(df['curb-weight'], df['price'])
+print("[curb-weight, price] The Pearson Correlation Coefficient is", pearson_coef, " with a P-value of P =", p_value)
+
+# ANOVA
+
+grouped_test2=df_gptest[['drive-wheels', 'price']].groupby(['drive-wheels'])
+print(grouped_test2.head())
